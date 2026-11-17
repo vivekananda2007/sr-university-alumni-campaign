@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alumni Invitation Campaign</title>
+</head>
+<body>
+
+<h2>SR University Alumni Office</h2>
+<h3>Invitation Campaign</h3>
+
+<form onsubmit="return validate()">
+
+    Event Title:
+    <input type="text" id="title" required><br><br>
+
+    Event Date:
+    <input type="date" id="date" required><br><br>
+
+    Audience Group:
+    <select id="audience" required>
+        <option value="">Select</option>
+        <option>All Alumni</option>
+        <option>Recent Graduates</option>
+        <option>Faculty</option>
+    </select><br><br>
+
+    Delivery Channel:
+    <select id="channel" required>
+        <option value="">Select</option>
+        <option>Email</option>
+        <option>SMS</option>
+        <option>WhatsApp</option>
+    </select><br><br>
+
+    Recipient:
+    <input type="text" id="recipient" required><br><br>
+
+    <button type="submit">Create Campaign</button>
+
+</form>
+
+<p id="msg"></p>
+
+<script>
+function validate() {
+    let title = document.getElementById("title").value;
+    let date = document.getElementById("date").value;
+    let audience = document.getElementById("audience").value;
+    let channel = document.getElementById("channel").value;
+    let recipient = document.getElementById("recipient").value.trim();
+
+    if (!title || !date || !audience || !channel || !recipient) {
+        document.getElementById("msg").innerHTML =
+            "All fields are required!";
+        return false;
+    }
+
+    document.getElementById("msg").innerHTML =
+        "Campaign created successfully!";
+    return false;
+}
+</script>
+
+</body>
+</html>
